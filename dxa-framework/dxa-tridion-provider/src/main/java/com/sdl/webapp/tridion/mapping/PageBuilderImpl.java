@@ -251,6 +251,8 @@ public final class PageBuilderImpl implements PageBuilder {
             throw new ContentProviderException(e);
         }
 
+        webRequestContext.setPageId(page.getId());
+
         RegionModelSet predefinedRegions = createPredefinedRegions(genericPage.getPageTemplate());
         page.setRegions(predefinedRegions);
 

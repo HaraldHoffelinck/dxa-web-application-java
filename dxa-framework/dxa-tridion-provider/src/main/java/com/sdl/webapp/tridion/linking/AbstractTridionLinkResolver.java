@@ -36,12 +36,27 @@ public abstract class AbstractTridionLinkResolver implements LinkResolver {
 
         if (url.startsWith("tcm:")) {
             if (!StringUtils.isEmpty(resolvedUrl)) {
+
+                boolean hasAnchor = resolvedUrl.contains("#");
+                //take anchor before url cleaning
+                String[] urlParts = null;
+                if (hasAnchor) {
+                    urlParts = resolvedUrl.split("#");
+                    resolvedUrl = urlParts[0];
+                }
+
                 if (resolvedUrl.endsWith(DEFAULT_PAGE_EXTENSION)) {
                     resolvedUrl = resolvedUrl.substring(0, resolvedUrl.length() - DEFAULT_PAGE_EXTENSION.length());
                 }
                 if (resolvedUrl.endsWith('/' + DEFAULT_PAGE_NAME)) {
                     resolvedUrl = resolvedUrl.substring(0, resolvedUrl.length() - DEFAULT_PAGE_NAME.length());
                 }
+
+                //add anchor to cleaned url
+                if (hasAnchor && urlParts != null && urlParts.length > 1) {
+                    resolvedUrl = String.format("%s#%s", resolvedUrl, urlParts[1]);
+                }
+
             }
         }
         return resolvedUrl;
