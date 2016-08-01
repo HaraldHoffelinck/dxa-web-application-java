@@ -15,6 +15,7 @@ public class XpmButtonTag extends XpmMarkupTag {
     private static final Logger LOG = LoggerFactory.getLogger(XpmButtonTag.class);
 
     private RegionModel region;
+    private String cssClass;
 
     /**
      * <p>Setter for the field <code>region</code>.</p>
@@ -23,6 +24,15 @@ public class XpmButtonTag extends XpmMarkupTag {
      */
     public void setRegion(RegionModel region) {
         this.region = region;
+    }
+
+    /**
+     * <p>Setter for the field <code>cssClass</code>.</p>
+     *
+     * @param cssClass a {@link String} object.
+     */
+    public void setCssClass(String cssClass) {
+        this.cssClass = cssClass;
     }
 
     private boolean isInclude() {
@@ -39,7 +49,7 @@ public class XpmButtonTag extends XpmMarkupTag {
             String title = "Go Back";
             String editUrl = "javascript:history.back()";
             return HtmlBuilders.div()
-                    .withClass("xpm-button")
+                    .withClass("xpm-button " + cssClass)
                     .withAttribute("style", "z-index:1")
                     .withNode(HtmlBuilders.a(editUrl)
                             .withClass("fa-stack fa-lg")
@@ -56,7 +66,7 @@ public class XpmButtonTag extends XpmMarkupTag {
             String title = "Edit " + this.region.getXpmMetadata().get(RegionModelImpl.INCLUDED_FROM_PAGE_TITLE_XPM_METADATA_KEY);
             String editUrl = '/' + path + this.region.getXpmMetadata().get(RegionModelImpl.INCLUDED_FROM_PAGE_FILE_NAME_XPM_METADATA_KEY);
             return HtmlBuilders.div()
-                    .withClass("xpm-button")
+                    .withClass("xpm-button " + cssClass)
                     .withAttribute("style", "z-index:1")
                     .withNode(HtmlBuilders.a(editUrl)
                             .withClass("fa-stack fa-lg")
