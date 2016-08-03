@@ -45,7 +45,7 @@ public class LocalizationFactoryImpl implements LocalizationFactory {
     private static final String CONFIG_BOOTSTRAP_PATH = "/system/config/_all.json";
     private static final String RESOURCES_BOOTSTRAP_PATH = "/system/resources/_all.json";
 
-    private static final String VERSION_PROPERTY_SETTING = "dxa.asset.version";
+    private static final String VERSION_PROPERTY_SETTING = "dxa.assets.version";
     private static final String VERSION_PATH = "/version.json";
     private static final String DEFAULT_VERSION_PATH = "/system/assets/version.json";
 
