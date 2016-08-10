@@ -1,5 +1,6 @@
 package com.sdl.webapp.common.impl.taglib.xpm;
 
+import com.google.common.base.Strings;
 import com.sdl.webapp.common.api.model.RegionModel;
 import com.sdl.webapp.common.api.model.region.RegionModelImpl;
 import com.sdl.webapp.common.markup.html.HtmlMultiNode;
@@ -32,8 +33,13 @@ public class XpmButtonTag extends XpmMarkupTag {
      * @param cssClass a {@link String} object.
      */
     public void setCssClass(String cssClass) {
-        this.cssClass = cssClass;
+        if (!Strings.isNullOrEmpty(cssClass)) {
+            this.cssClass = " " + cssClass;
+        } else {
+            this.cssClass = "";
+        }
     }
+
 
     private boolean isInclude() {
         return this.region.getXpmMetadata().get(RegionModelImpl.INCLUDED_FROM_PAGE_ID_XPM_METADATA_KEY) == null;
