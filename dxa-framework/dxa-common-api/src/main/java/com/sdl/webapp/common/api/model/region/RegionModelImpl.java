@@ -91,7 +91,7 @@ public class RegionModelImpl implements RegionModel {
     @JsonProperty("Regions")
     @Getter
     @Setter
-    private RegionModelSet regions;
+    private RegionModelSet regions = new RegionModelSetImpl();
 
     @JsonProperty("ExtensionData")
     @Getter
