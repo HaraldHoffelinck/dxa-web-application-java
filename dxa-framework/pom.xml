@@ -29,9 +29,9 @@
     </modules>
 
     <scm>
-        <url>https://github.com/sdl/dxa-web-application-java</url>
-        <connection>scm:git:git@github.com:sdl/dxa-web-application-java.git</connection>
-        <developerConnection>scm:git:git@github.com:sdl/dxa-web-application-java.git</developerConnection>
+        <url>https://git.cm.be/DAP/dxa-web-application-java.git</url>
+        <connection>scm:git:git@git.cm.be:DAP/dxa-web-application-java.git</connection>
+        <developerConnection>scm:git:git@git.cm.be:DAP/dxa-web-application-java.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
