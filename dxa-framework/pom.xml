@@ -30,8 +30,8 @@
 
     <scm>
         <url>https://git.cm.be/DAP/dxa-web-application-java.git</url>
-        <connection>scm:git:https://git.cm.be:DAP/dxa-web-application-java.git</connection>
-        <developerConnection>scm:git:https://git.cm.be:DAP/dxa-web-application-java.git</developerConnection>
+        <connection>scm:git:https://git.cm.be/DAP/dxa-web-application-java.git</connection>
+        <developerConnection>scm:git:https://git.cm.be/DAP/dxa-web-application-java.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
