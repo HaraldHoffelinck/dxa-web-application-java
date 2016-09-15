@@ -129,11 +129,11 @@ public class MarkupImpl implements Markup {
         }
 
         if (!vocabularies.isEmpty()) {
-            return new HtmlAttribute("prefix", Joiner.on(' ').join(vocabularies)).toHtml() +
+            return new HtmlAttribute("data-entity", entity.getId()).toHtml() + ' ' + new HtmlAttribute("prefix", Joiner.on(' ').join(vocabularies)).toHtml() +
                     ' ' + new HtmlAttribute("typeof", Joiner.on(' ').join(entityTypes)).toHtml();
         }
 
-        return "";
+        return new HtmlAttribute("data-entity", entity.getId()).toHtml();
     }
 
     /** {@inheritDoc} */

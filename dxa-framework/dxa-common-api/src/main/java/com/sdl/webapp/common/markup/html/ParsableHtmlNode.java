@@ -1,6 +1,7 @@
 package com.sdl.webapp.common.markup.html;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Comment;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
@@ -36,21 +37,24 @@ public class ParsableHtmlNode extends HtmlNode {
         if (this.html == null) {
             Element htmlElement = null;
             Document doc = Jsoup.parse(this.htmlText);
-            List<Node> htmlNodes = doc.childNodes();
-            Node firstNode = htmlNodes.get(0);
-            if (firstNode instanceof Element) {
-                Element element = (Element) firstNode;
-                Elements elements = element.select("body");
-                if (elements.size() > 0) {
-                    if (elements.first().children().size() == 1) {
-                        htmlElement = elements.first().child(0);
+
+                List<Node> htmlNodes = doc.childNodes();
+                Node firstNode = htmlNodes.get(0);
+
+                if (firstNode instanceof Element) {
+                    Element element = (Element) firstNode;
+                    Elements elements = element.select("body");
+                    if (elements.size() > 0) {
+                        if (elements.first().children().size() == 1) {
+                            htmlElement = elements.first().child(0);
+                        }
                     }
-                }
-                if (htmlElement == null) {
-                    htmlElement = doc.child(0);
-                }
+                    if (htmlElement == null) {
+                        htmlElement = doc.child(0);
+                    }
+
+                this.html = htmlElement;
             }
-            this.html = htmlElement;
         }
         return this.html;
     }

@@ -67,7 +67,7 @@ public class MarkupTest {
     @Test
     public void testEntity() {
         assertThat(markup.entity(new MarkupTestConfig.TestEntity()),
-                is("prefix=\"s: http://schema.org/\" typeof=\"s:SchemaEnt\""));
+                is("data-entity=\"\" prefix=\"s: http://schema.org/\" typeof=\"s:SchemaEnt\""));
     }
 
     @Test
