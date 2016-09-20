@@ -109,6 +109,7 @@ public class MarkupImpl implements Markup {
     public String region(RegionModel region) {
         return Joiner.on(' ').join(Arrays.asList(
                 TYPEOF_REGION_ATTR.toHtml(),
+                new HtmlAttribute("data-region", "1").toHtml(),
                 new HtmlAttribute("resource", region.getName()).toHtml()));
     }
 

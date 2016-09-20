@@ -58,7 +58,7 @@ public class MarkupTest {
         final RegionModelImpl region;
         try {
             region = new RegionModelImpl("TestRegion");
-            assertThat(markup.region(region), is("typeof=\"Region\" resource=\"TestRegion\""));
+            assertThat(markup.region(region), is("typeof=\"Region\" data-region=\"1\" resource=\"TestRegion\""));
         } catch (DxaException e) {
             e.printStackTrace();
         }
